@@ -4,6 +4,7 @@ openssl genrsa -out dev.key 2048
 openssl req -x509 -new -nodes -key dev.key -sha256 -days 1825 -out dev.pem
 openssl req -new -key dev.key -out dev.csr
 openssl x509 -req -in dev.csr -CA dev.pem -CAkey dev.key -CAcreateserial -out dev.crt -days 365 -sha256 -extfile dev.ext
+rm *.srl *.csr
 
 echo "
 ###############################################################
